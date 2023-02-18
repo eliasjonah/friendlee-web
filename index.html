@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content=""><!-- CSS only -->
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript">JavaScript must be enabled for the site to function properly!</div>
+    </noscript>
+    <script>
+      (() => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', './img/sprite.svg', true);
+        xhr.send();
+        xhr.onload = function() {
+          var div = document.createElement('div');
+          div.className = 'visually-hidden';
+          div.innerHTML = xhr.responseText;
+          document.body.insertBefore(div, document.body.childNodes[0]);
+        }
+      })();
+
+    </script>
+    <div class="page">
+      <div class="page__core">
+        <header class="header"></header>
+        <section class="calc">
+          <h1 class="calc__header">Рассчитайте стоимость автомобиля в лизинг</h1>
+          <div class="calc__inputs">
+            <div class="field">
+              <label class="label">Стоимость автомобиля</label>
+              <div class="input-item">
+                <input class="input input--money" type="number" id="car-price" min="0" max="100" value="0"><span class="input-item__symbol">₽</span>
+                <div class="input-slider">
+                  <input class="input-slider__scroll" type="range" id="car-price-range" min="0" max="100" value="0">
+                  <progress class="input-slider__progress" min="0" max="100" value="0"></progress>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Первоначальный взнос</label>
+              <div class="input-item">
+                <input class="input input--percent" type="number" id="initial-fee" min="0" max="100" value="0"><span class="input-item__symbol input-item__symbol--percent">13%</span>
+                <div class="input-slider">
+                  <input class="input-slider__scroll" type="range" id="initial-fee-range" min="0" max="100" value="0">
+                  <progress class="input-slider__progress" min="0" max="100" value="0"></progress>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Срок лизинга</label>
+              <div class="input-item">
+                <input class="input input--month" type="number" id="leasing-term" min="0" max="100" value="0"><span class="input-item__symbol">мес.</span>
+                <div class="input-slider">
+                  <input class="input-slider__scroll" type="range" id="leasing-term-range" min="0" max="100" value="0">
+                  <progress class="input-slider__progress" min="0" max="100" value="0"></progress>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="calc__wrapper">
+            <div class="calc__item"><span class="calc__info">Сумма договора лизинга</span>
+              <div class="calc__price" id="contract-amount">4 467 313 <span>₽</span></div>
+            </div>
+            <div class="calc__item"><span class="calc__info">Ежемесячный платеж от</span>
+              <div class="calc__price" id="monthly-payment">114 455 <span>₽</span></div>
+            </div>
+            <div class="calc__item">
+              <div class="btn calc__btn">Оставить заявку</div>
+            </div>
+          </div>
+        </section>
+        <footer class="footer"></footer>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>UI-kit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content=""><!-- CSS only -->
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript">JavaScript must be enabled for the site to function properly!</div>
+    </noscript>
+    <script>
+      (() => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', './img/sprite.svg', true);
+        xhr.send();
+        xhr.onload = function() {
+          var div = document.createElement('div');
+          div.className = 'visually-hidden';
+          div.innerHTML = xhr.responseText;
+          document.body.insertBefore(div, document.body.childNodes[0]);
+        }
+      })();
+
+    </script>
+    <div class="page">
+      <div class="page__core">
+        <div class="ui-kit">
+          <div class="ui-kit__wrapper">
+            <h1 class="ui-kit__btn">Кнопки</h1>
+            <button class="btn">.btn</button>
+          </div>
+          <div class="ui-kit__wrapper">
+            <h1 class="ui-kit__btn">Ползунки</h1>
+            <div class="field">
+              <label class="label">.label</label>
+              <div class="input-item">
+                <input class="input" placeholder=".input"><span class="input-item__text">₽</span>
+                <div class="input-slider">
+                  <input class="input-slider__scroll" type="range" min="0" max="100" value="50">
+                  <progress class="input-slider__progress" min="0" max="100" value="50"></progress>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
